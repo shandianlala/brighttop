@@ -1,4 +1,4 @@
-module registry.code.tuya-inc.top/TuyaBEMiddleWare/brighttop
+module sdll/brighttop
 
 go 1.16
 
