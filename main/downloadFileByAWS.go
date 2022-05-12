@@ -13,7 +13,7 @@ import (
 	//"github.com/aws/aws-sdk-go/service/s3"
 )
 
-func main() {
+func main2() {
 	fmt.Println("test")
 
 	accessKey := "xxx"
