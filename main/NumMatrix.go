@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main3() {
 	a := [][]int{{3, 0, 1, 4, 2}, {5, 6, 3, 2, 1}, {1, 2, 0, 1, 5}, {4, 1, 0, 1, 7}, {1, 0, 3, 0, 5}}
 	var numMatrix = Constructor(a)
 	region := numMatrix.SumRegion(2, 1, 4, 3) // return 8 (红色矩形框的元素总和)
