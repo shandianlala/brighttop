@@ -21,7 +21,7 @@ func main() {
 	)
 
 	key1 := "test1"
-	//redisClient.Set(key1, "my key", 30*time.Second)
+	//redisClient.Set(key1, "my key...", 30*time.Second)
 
 	result, err := redisClient.Get(key1).Result()
 	if err != nil {
@@ -33,5 +33,11 @@ func main() {
 	} else {
 		glog.Infof("value is [%s]", result)
 	}
+	glog.Info(".....")
+
+	inc, _ := redisClient.Incr("enc_pic_cluster_id").Result()
+	glog.Infof("inc=%d", inc)
+	intInc, _ := redisClient.Get("enc_pic_cluster_id").Int64()
+	glog.Infof("intInc=%d", intInc)
 
 }
