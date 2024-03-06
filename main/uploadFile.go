@@ -11,7 +11,7 @@ import (
 	"net/http"
 	"os"
 	"sdll/brighttop/common"
-	glog "sdll/brighttop/golog"
+	glog "sdll/brighttop/glog"
 	"sdll/brighttop/util/cipherutil"
 	"strconv"
 	"strings"

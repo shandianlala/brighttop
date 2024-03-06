@@ -34,7 +34,22 @@ func LongEnough(l Lener) bool {
 	return l.Len()*10 > 42
 }
 
-func main() {
+type B struct {
+	thing int
+}
+
+func (b *B) change()      { b.thing = 1 }
+func (b B) write() string { return fmt.Sprint(b) }
+
+func main1() {
+	var b1 B // b1 是值
+	b1.change()
+	fmt.Println(b1.write())
+
+	b2 := new(B) // b2 是指针
+	b2.change()
+	fmt.Println(b2.write())
+
 	// A bare value
 	var lst List
 	// compiler error:
