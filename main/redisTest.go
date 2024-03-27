@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func mainRedis() {
 
 	redisClient := redis.NewClient(
 		&redis.Options{
@@ -26,7 +26,7 @@ func main() {
 	result, err := redisClient.Get(key1).Result()
 	if err != nil {
 		if err != redis.Nil {
-			glog.Error("获取key出错", err)
+			glog.Errorf("获取key出错 %s", err)
 		} else {
 			glog.Info("key不存在或者已过期")
 		}
@@ -37,7 +37,11 @@ func main() {
 
 	inc, _ := redisClient.Incr("enc_pic_cluster_id").Result()
 	glog.Infof("inc=%d", inc)
-	intInc, _ := redisClient.Get("enc_pic_cluster_id").Int64()
-	glog.Infof("intInc=%d", intInc)
+	intInc, err := redisClient.Get("enc_pic_cluster_id").Int64()
+	if err != nil && err != redis.Nil {
+		glog.Errorf("获取key出错 %s", err)
+	} else {
+		glog.Infof("intInc=%d", intInc)
+	}
 
 }
